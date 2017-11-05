@@ -1,0 +1,9 @@
+---
+applications:
+  - name: pz-workload-manager
+    memory: 128M
+    disk_quota: 128M
+    instances: 1
+    services:
+      - Cloudant NoSQL DB-hq
+    command: npm start
