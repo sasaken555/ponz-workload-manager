@@ -9,13 +9,13 @@
 
 |Slack側|アプリ側|機能説明|
 |:---|:---|:---|
-|/workon *YYYYMMDDhhmm*|/workon?knmDttm=*YYYYMMDDhhmm*|指定日の勤務開始時間として記録する|
-|/workoff *YYYYMMDDhhmm*|/workoff?knmDttm=*YYYYMMDDhhmm*|指定日の勤務終了時間として記録する|
-|/worktime thisweek|/worktime/week?targetWeek=*YYYYMMDD*|指定週の勤務時間実績を出力する|
-|/worktime thismonth|/worktime/month?targetMonth=*YYYYMM*|指定月の勤務時間実績を出力する|
-|/worktimefile thisweek|/worktime/file/week?targetWeek=*YYYYMMDD*|指定月の勤務時間実績をファイルとして出力する|
-|/worktimefile thismonth|/worktime/file/month?targetMonth=*YYYYMM*|指定週の勤務時間実績をファイルとして出力する|
-|/now|/worknow||
+|/workon *YYYYMMDDhhmm*|/workon?knmDttm=*YYYYMMDDhhmm*|指定日の勤務開始時間として記録する。|
+|/workoff *YYYYMMDDhhmm*|/workoff?knmDttm=*YYYYMMDDhhmm*|指定日の勤務終了時間として記録する。|
+|/worktime thisweek|/worktime/week?targetWeek=*YYYYMMDD*|指定週の勤務時間実績を出力する。|
+|/worktime thismonth|/worktime/month?targetMonth=*YYYYMM*|指定月の勤務時間実績を出力する。|
+|/worktimefile thisweek|/worktime/file/week?targetWeek=*YYYYMMDD*|指定月の勤務時間実績をファイルとして出力する。|
+|/worktimefile thismonth|/worktime/file/month?targetMonth=*YYYYMM*|指定週の勤務時間実績をファイルとして出力する。|
+|/now|/worknow|現在の年月日時分秒を表示する。|
 
 ## システム構成
 
