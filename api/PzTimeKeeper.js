@@ -26,6 +26,9 @@ function knmDttmFormat(knmDttm) {
 
 module.exports = (app, options) => {
   app.post('/workon', (req, res, next) => {
+    // Slackトークン認証を行う
+    // 認証エラーなら、403エラーで弾く!!
+
     // 入力したパラメータから年月日時分を切り出し
     const knmDttm = req.query.knmDttm;
     const knmStartDttm = knmDttmFormat(knmDttm);
@@ -37,6 +40,9 @@ module.exports = (app, options) => {
   });
 
   app.post('/workoff', (req, res, next) => {
+    // Slackトークン認証を行う
+    // 認証エラーなら、403エラーで弾く!!
+
     // 入力したパラメータから年月日時分を切り出し
     const knmDttm = req.query.knmDttm;
     const knmEndDttm = knmDttmFormat(knmDttm);

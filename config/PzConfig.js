@@ -5,5 +5,6 @@
  * 環境変数を定義する
  */
 module.exports = {
-  port: process.env.PORT || 8321
+  port: process.env.PORT || 8321,
+  slctoken: process.env.SLACKTOKEN || ''
 };
