@@ -24,7 +24,7 @@ function knmDttmFormat(knmDttm) {
   return new Date(knmYear, knmMonth, knmDay, knmHour, knmMinite);
 }
 
-const moment = require('moment');
+const moment = require('moment-timezone');
 
 module.exports = (app, options) => {
   app.post('/workon', (req, res, next) => {
@@ -32,8 +32,8 @@ module.exports = (app, options) => {
     // 認証エラーなら、403エラーで弾く!!
 
     // 入力したパラメータから年月日時分を切り出し
-    const knmDttm = req.query.knmDttm;
-    const knmStartDttm = moment(knmDttmFormat(knmDttm)).locale('ja').format("YYYY-MM-DD HH:mm:ss");
+    const knmDttm = req.body.text;
+    const knmStartDttm = moment(knmDttmFormat(knmDttm)).tz("Asia/Tokyo").format("YYYY-MM-DD HH:mm:ss");
 
     res.status(200).send({
       response_type: 'in_channel',
@@ -46,8 +46,8 @@ module.exports = (app, options) => {
     // 認証エラーなら、403エラーで弾く!!
 
     // 入力したパラメータから年月日時分を切り出し
-    const knmDttm = req.query.knmDttm;
-    const knmEndDttm = moment(knmDttmFormat(knmDttm)).locale('ja').format("YYYY-MM-DD HH:mm:ss");
+    const knmDttm = req.body.text;
+    const knmEndDttm = moment(knmDttmFormat(knmDttm)).tz("Asia/Tokyo").format("YYYY-MM-DD HH:mm:ss");
 
     res.status(200).send({
       response_type: 'in_channel',

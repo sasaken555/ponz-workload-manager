@@ -6,6 +6,7 @@
  */
 const express = require('express');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 
 module.exports.start = (options) => {
   return new Promise((resolve, reject) => {
@@ -14,6 +15,10 @@ module.exports.start = (options) => {
     const app = express();
     // Logging mode = development
     app.use(morgan('dev'));
+    // parse application/x-www-form-urlencoded
+    app.use(bodyParser.urlencoded({ extended: false }));
+    // parse application/json
+    app.use(bodyParser.json());
 
     // Load APIs
     require('../api/PzTimeKeeper')(app, options);
