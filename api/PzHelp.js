@@ -6,7 +6,7 @@
  */
 'use strict';
 
-const moment = require('moment');
+const moment = require('moment-timezone');
 
 module.exports = (app, options) => {
   app.post('/worknow', (req, res, next) => {
@@ -16,7 +16,7 @@ module.exports = (app, options) => {
     // 正常系
     res.status(200).send({
       response_type: 'in_channel',
-      text: "現在時刻: " + moment().locale('ja').format('YYYY-MM-DD hh:mm:ss')
+      text: "現在時刻: " + moment().tz("Tokyo/Asia").format('YYYY-MM-DD hh:mm:ss')
     });
   });
 };

@@ -22,9 +22,10 @@
   },
   "homepage": "https://github.com/sasaken555/ponz-workload-manager#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "cloudant": "^1.10.0",
     "express": "^4.16.2",
-    "moment": "^2.19.1",
+    "moment-timezone": "^0.5.14",
     "morgan": "^1.9.0"
   }
 }
