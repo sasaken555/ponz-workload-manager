@@ -10,7 +10,7 @@
  * knmDttmFormat(knmDttm)
  * @params String knmDttm 年月日時分
  * @return YYYY-MM-DD hh:mm:ss形式の時刻
- * パラメータに渡された時刻文字列をDateオブジェクト文字列に変換する
+ * パラメータに渡された時刻文字列をDateオブジェクトに変換する
  */
 function knmDttmFormat(knmDttm) {
   // 文字列から各値を切り出し
@@ -21,8 +21,10 @@ function knmDttmFormat(knmDttm) {
   const knmMinite = knmDttm.slice(10);
 
   // 秒まで指定していないため、Dateオブジェクトの秒は '00' 固定となる
-  return new Date(knmYear, knmMonth, knmDay, knmHour, knmMinite).toLocaleString();
+  return new Date(knmYear, knmMonth, knmDay, knmHour, knmMinite);
 }
+
+const moment = require('moment');
 
 module.exports = (app, options) => {
   app.post('/workon', (req, res, next) => {
@@ -31,7 +33,7 @@ module.exports = (app, options) => {
 
     // 入力したパラメータから年月日時分を切り出し
     const knmDttm = req.query.knmDttm;
-    const knmStartDttm = knmDttmFormat(knmDttm);
+    const knmStartDttm = moment(knmDttmFormat(knmDttm)).locale('ja').format("YYYY-MM-DD HH:mm:ss");
 
     res.status(200).send({
       response_type: 'in_channel',
@@ -45,7 +47,7 @@ module.exports = (app, options) => {
 
     // 入力したパラメータから年月日時分を切り出し
     const knmDttm = req.query.knmDttm;
-    const knmEndDttm = knmDttmFormat(knmDttm);
+    const knmEndDttm = moment(knmDttmFormat(knmDttm)).locale('ja').format("YYYY-MM-DD HH:mm:ss");
 
     res.status(200).send({
       response_type: 'in_channel',
