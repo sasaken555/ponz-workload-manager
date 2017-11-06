@@ -24,6 +24,7 @@
   "dependencies": {
     "cloudant": "^1.10.0",
     "express": "^4.16.2",
+    "moment": "^2.19.1",
     "morgan": "^1.9.0"
   }
 }

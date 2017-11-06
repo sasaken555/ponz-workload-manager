@@ -6,6 +6,8 @@
  */
 'use strict';
 
+const moment = require('moment');
+
 module.exports = (app, options) => {
   app.post('/worknow', (req, res, next) => {
     // Slackトークン認証を行う
@@ -14,7 +16,7 @@ module.exports = (app, options) => {
     // 正常系
     res.status(200).send({
       response_type: 'in_channel',
-      text: "現在時刻: " + new Date().toLocaleString()
+      text: "現在時刻: " + moment().locale('ja').format('YYYY-MM-DD hh:mm:ss')
     });
   });
 };

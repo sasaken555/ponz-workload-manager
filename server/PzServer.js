@@ -17,8 +17,8 @@ module.exports.start = (options) => {
 
     // Load APIs
     require('../api/PzTimeKeeper')(app, options);
-    // require('../api/PzTimeShow')(app, options);
-    require('../api/PzUtil')(app, options);
+    require('../api/PzTimeShow')(app, options);
+    require('../api/PzHelp')(app, options);
 
     // Create server, return running server Object
     const server = app.listen(options.port, () => {
