@@ -6,5 +6,6 @@
  */
 module.exports = {
   port: process.env.PORT || 8321,
-  slctoken: process.env.SLACKTOKEN || ''
+  slctoken: process.env.SLACKTOKEN || '',
+  timezone: process.env.TIME_ZONE || "Asia/Tokyo"
 };

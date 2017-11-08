@@ -25,6 +25,7 @@ function knmDttmFormat(knmDttm) {
 }
 
 const moment = require('moment-timezone');
+const config = require('../config/PzConfig');
 
 module.exports = (app, options) => {
   app.post('/workon', (req, res, next) => {
