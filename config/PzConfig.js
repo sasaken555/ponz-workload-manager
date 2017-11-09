@@ -6,7 +6,9 @@
  */
 
 // 環境変数の読み込み 開発環境のみ.envファイルから読み込む
-require('dotenv').config();
+if (process.env.NODE_ENV === "dev") {
+  require('dotenv').config();
+}
 
 module.exports = {
   port: process.env.PORT || 8321,
