@@ -26,11 +26,21 @@ function knmDttmFormat(knmDttm) {
 
 const moment = require('moment-timezone');
 const config = require('../config/PzConfig');
+const util = require('../utility/PzUtils');
 
 module.exports = (app, options) => {
   app.post('/workon', (req, res, next) => {
     // Slackトークン認証を行う
     // 認証エラーなら、403エラーで弾く!!
+    const reqToken = req.body.token;
+
+    if (util.PzCheckToken(reqToken) === false) {
+      res.set('Content-Type', 'text/html');
+      res.status(403).send("不正なリクエストです。");
+
+      // ここでreturnで抜けないと, Expressサーバー上は200で返却される
+      return;
+    }
 
     // 入力したパラメータから年月日時分を切り出し
     const knmDttm = req.body.text;
@@ -45,6 +55,15 @@ module.exports = (app, options) => {
   app.post('/workoff', (req, res, next) => {
     // Slackトークン認証を行う
     // 認証エラーなら、403エラーで弾く!!
+    const reqToken = req.body.token;
+
+    if (util.PzCheckToken(reqToken) === false) {
+      res.set('Content-Type', 'text/html');
+      res.status(403).send("不正なリクエストです。");
+
+      // ここでreturnで抜けないと, Expressサーバー上は200で返却される
+      return;
+    }
 
     // 入力したパラメータから年月日時分を切り出し
     const knmDttm = req.body.text;
