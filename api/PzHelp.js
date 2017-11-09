@@ -8,11 +8,21 @@
 
 const moment = require('moment-timezone');
 const config = require('../config/PzConfig');
+const util = require('../utility/PzUtils');
 
 module.exports = (app, options) => {
   app.post('/worknow', (req, res, next) => {
     // Slackトークン認証を行う
     // 認証エラーなら、403エラーで弾く!!
+    const reqToken = req.body.token;
+
+    if (util.PzCheckToken(reqToken) === false) {
+      res.set('Content-Type', 'text/html');
+      res.status(403).send("不正なリクエストです。");
+
+      // ここでreturnで抜けないと, Expressサーバー上は200で返却される
+      return;
+    }
 
     // ベースとなるUTC時間を設定
     const UTCDateStr = new Date().toUTCString();
